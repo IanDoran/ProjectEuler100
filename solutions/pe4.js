@@ -4,7 +4,8 @@ function largestPalindromeProduct(n) {
     var i = 0,
     j = 0,
     k = 0,
-    l = 0;
+    l = 0,
+    counter = 0;
     var num = new Array(n);
     for (i = 0; i < n; ++i) {
         num[i] = 9;
@@ -16,30 +17,30 @@ function largestPalindromeProduct(n) {
     //var palint = 9009;
     //var pal = palint.toString();
     var factor = [];
-
+    
+    factor_loop:
     for (i = number; i > 0; i--) {
         for (j = number; i > 0; j--){
             protopal = i* j; // potential palindrome
             var pal = protopal.toString(); // convert to string
 
-            //palindrome check
+            palindrome_check:
             for (k = 0; k < n; k++) {
                 if (pal[k] == pal[(2*n) - k - 1]) {
                     console.log(pal[k]);
                     console.log(pal[(2*n) - k - 1]);
-                    var counter = 0;
                     counter++
                     
-                    if ( counter = n) {
+                    if ( counter == n) {
                         factor[l] = [i, j];
                         console.log(factor[l]);
-                        l++;
+                        break
                     }
                     
                 }
 
                 else {
-                pass = false;
+                break;
                 }
             }
 
@@ -55,7 +56,7 @@ function largestPalindromeProduct(n) {
     //        j++;
     //    }
     //}
-    console.log(factor);
+    //console.log(factor);
 }
 
 largestPalindromeProduct(2);
