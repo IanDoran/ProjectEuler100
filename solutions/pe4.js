@@ -3,7 +3,8 @@ function largestPalindromeProduct(n) {
 
     var i = 0,
     j = 0,
-    k = 0;
+    k = 0,
+    l = 0;
     var num = new Array(n);
     for (i = 0; i < n; ++i) {
         num[i] = 9;
@@ -12,7 +13,8 @@ function largestPalindromeProduct(n) {
     var number = parseInt(numb, 10); //this is the largest 'n' digit number
     console.log(number);
     var protopal;
-    var pal = 906609;
+    var palint = 9009;
+    var pal = palint.toString();
     var factor = [];
 
     //for (i = number; i > 0; i--) {
@@ -25,6 +27,11 @@ function largestPalindromeProduct(n) {
                 if (pal[k] == pal[(2*n) - k - 1]) {
                     console.log(pal[k]);
                     console.log(pal[(2*n) - k - 1]);
+                    factor[l] = [i, j];
+                    console.log(factor[l]);
+                    l++;
+
+                    
                 }
 
                 else {
