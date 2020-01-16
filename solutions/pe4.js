@@ -28,35 +28,26 @@ function largestPalindromeProduct(n) {
             for (k = 0; k < n; k++) {
                 if (pal[k] == pal[(2*n) - k - 1]) {
                     console.log(pal[k]);
+                    console.log(protopal);
                     console.log(pal[(2*n) - k - 1]);
                     counter++
                     
                     if ( counter == n) {
                         factor[l] = [i, j];
                         console.log(factor[l]);
-                        break
+                        break factor_loop;
                     }
                     
                 }
 
                 else {
-                break;
+                break palindrome_check;
                 }
             }
 
         }
     }
-
-
-
-    //create array of all three digit factors for the given number.
-    //for (i = 0; i <= number; i++) {
-    //    if (Number.isInteger(number/i) && i > 99 && i < 1000) {
-    //        factor[j] = i;
-    //        j++;
-    //    }
-    //}
-    //console.log(factor);
+    return protopal;
 }
 
-largestPalindromeProduct(2);
+largestPalindromeProduct(3);
