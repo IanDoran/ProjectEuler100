@@ -7,37 +7,32 @@ function largestPalindromeProduct(n) {
     l = 0,
     counter = 0;
     var num = new Array(n);
-    for (i = 0; i < n; ++i) {
+    var protopal;
+    var palindromes = [];
+
+    for (i = 0; i < n; ++i) { //creates an integer with "n" 9s
         num[i] = 9;
     }
+
     var numb = num.join('');
     var number = parseInt(numb, 10); //this is the largest 'n' digit number
-    console.log(number);
-    var protopal;
-    //var palint = 9009;
-    //var pal = palint.toString();
-    var factor = [];
-    
+
     factor_loop:
     for (i = number; i > 0; i--) {
-        for (j = number; i > 0; j--){
+        for (j = number; j > 0; j--){
             protopal = i* j; // potential palindrome
-            var pal = protopal.toString(); // convert to string
+            var pal = protopal.toString(); // convert to string to check if it's a palindrome
 
             palindrome_check:
-            for (k = 0; k < n; k++) {
+            for (k = 0, counter = 0; k < n; k++) {
                 if (pal[k] == pal[(2*n) - k - 1]) {
-                    console.log(pal[k]);
-                    console.log(protopal);
-                    console.log(pal[(2*n) - k - 1]);
                     counter++
-                    
+
                     if ( counter == n) {
-                        factor[l] = [i, j];
-                        console.log(factor[l]);
-                        break factor_loop;
+                        palindromes[l] = protopal;  //if number is a palindrome save it to palindromes array
+                        l++
                     }
-                    
+
                 }
 
                 else {
@@ -47,7 +42,9 @@ function largestPalindromeProduct(n) {
 
         }
     }
-    return protopal;
+    console.log(Math.max(...palindromes));
+    var largestpal = Math.max(...palindromes); //find largest palindrome in palindromes array
+    return largestpal;
 }
 
-largestPalindromeProduct(3);
+largestPalindromeProduct(4);
