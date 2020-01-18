@@ -8,27 +8,29 @@ function smallestMult(n) {
   var x = 0,
   i = 0,
   j = 0,
-  dividend = 0,
+  div = 0,
   smallest = 0,
   counter = 0;
   
-  dividend-loop:
-  for (i = 0; i > 0; i++) {
-    for (j = 0; j < n; J++) {
-      dividend = i \ j;
-      if (Number.isInteger(k)) {
-        counter++
+  
+  for (i = 1; i > 0; i++) {
+    dividendloop:  
+    for (j = 1; j < n; j++) {
+      div = i / j;
+      if (Number.isInteger(div)) {
+        counter++;
         if (counter == n - 1) {
         smallest = i;
         break;
         }
       }
       else {
-      break dividend-loop;
+      break dividendloop;
       }
     }
   }
   return smallest;
+  console.log(smallest);
 }
 
-smallestMult(20);
+smallestMult(5);
