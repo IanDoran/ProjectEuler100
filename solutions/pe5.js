@@ -4,6 +4,7 @@
 //If the quotient after dividing by all numbers n are whole numbers the number x is the solution.
 
 
+
 function smallestMult(n) {
   var x = 0,
   i = 0,
@@ -11,17 +12,26 @@ function smallestMult(n) {
   div = 0,
   smallest = 0,
   counter = 0;
-  
-  
-  for (i = 1; i > 0; i++) {
-    dividendloop:  
-    for (j = 1; j < n; j++) {
+
+  function is_int(value){
+  if((parseFloat(value) == parseInt(value)) && !isNaN(value)){
+      return true;
+  } else {
+      return false;
+  }
+}
+
+  func:
+  for (i = 1; i < 1000000000; i++) {
+    counter = 0;
+    dividendloop:
+    for (j = 1; j < n + 1; j++) {
       div = i / j;
-      if (Number.isInteger(div)) {
+      if (is_int(div)) {
         counter++;
-        if (counter == n - 1) {
-        smallest = i;
-        break;
+        if (counter === (n)) {
+          smallest = i;
+          break func;
         }
       }
       else {
@@ -29,8 +39,9 @@ function smallestMult(n) {
       }
     }
   }
-  return smallest;
   console.log(smallest);
+  return smallest;
+
 }
 
-smallestMult(5);
+smallestMult(20);
